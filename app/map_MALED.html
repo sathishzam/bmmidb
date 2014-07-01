@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jVectorMap demo</title>
+  <link rel="stylesheet" media="all" href="../bower_components/jvectormap/jquery-jvectormap.css"/>
+  <script src="../bower_components/jvectormap/tests/assets/jquery-1.8.2.js"></script>
+  <script src="../bower_components/jvectormap/tests/assets/jquery-jvectormap-map.js"></script>
+  <script src="../bower_components/jvectormap/jquery-mousewheel.js"></script>
+
+  <script src="../bower_components/jvectormap/lib/jvectormap.js"></script>
+
+  <script src="../bower_components/jvectormap/lib/abstract-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/abstract-canvas-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/abstract-shape-element.js"></script>
+
+  <script src="../bower_components/jvectormap/lib/svg-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/svg-group-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/svg-canvas-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/svg-shape-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/svg-path-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/svg-circle-element.js"></script>
+
+  <script src="../bower_components/jvectormap/lib/vml-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/vml-group-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/vml-canvas-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/vml-shape-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/vml-path-element.js"></script>
+  <script src="../bower_components/jvectormap/lib/vml-circle-element.js"></script>
+
+  <script src="../bower_components/jvectormap/lib/vector-canvas.js"></script>
+  <script src="../bower_components/jvectormap/lib/simple-scale.js"></script>
+  <script src="../bower_components/jvectormap/lib/numeric-scale.js"></script>
+  <script src="../bower_components/jvectormap/lib/ordinal-scale.js"></script>
+  <script src="../bower_components/jvectormap/lib/color-scale.js"></script>
+  <script src="../bower_components/jvectormap/lib/data-series.js"></script>
+  <script src="../bower_components/jvectormap/lib/proj.js"></script>
+  <script src="../bower_components/jvectormap/lib/world-map.js"></script>
+
+  <script src="../bower_components/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js"></script>
+  <script>
+    jQuery.noConflict();
+    jQuery(function(){
+      var $ = jQuery;
+
+      $('#focus-single').click(function(){
+        $('#map1').vectorMap('set', 'focus', 'BR');
+      });
+      $('#focus-multiple').click(function(){
+        $('#map1').vectorMap('set', 'focus', ['BR', 'SA']);
+      });
+      $('#focus-init').click(function(){
+        $('#map1').vectorMap('set', 'focus', 1, 0, 0);
+      });
+      $('#map1').vectorMap({
+        map: 'world_mill_en',
+        focusOn: {
+          x: 0.5,
+          y: 0.5,
+          scale: 1
+        },
+        series: {
+          regions: [{
+            values: {
+                "BR": "#E6B800",
+                "US": "#3399FF",
+                "ZA": "#8A5C2E",
+                "IN": "#1919A3",
+                "BD": "#009900",
+                "PE": "#FF3399",
+                "MW": "#FF3300"
+            }
+          }]
+        }
+      });
+    })
+  </script>
+</head>
+<body>
+  <div style="height: 400px"></div>
+  <div id="map1" style="width: 600px; height: 400px"></div>
+  <button id="focus-single">Focus on Brazil</button>
+  <button id="focus-multiple">Focus on Brazil and South Africa</button>
+  <button id="focus-init">Return to the initial state</button>
+</body>
+</html>
